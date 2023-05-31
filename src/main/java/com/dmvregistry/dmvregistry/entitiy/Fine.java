@@ -1,9 +1,16 @@
 package com.dmvregistry.dmvregistry.entitiy;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Entity
 public class Fine {
+    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "finesIdSeq", sequenceName = "fines_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "finesIdSeq")
     private int id;
     private String carId;
     private String offenderName;
